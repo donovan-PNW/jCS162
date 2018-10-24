@@ -1,5 +1,5 @@
 #ifndef ARRAY_H
-#define ARRY_H
+#define ARRAY_H
 
 //array.h
 #include <iostream>
@@ -13,6 +13,10 @@ void display(int list[], int size);  //supplied
 
 /* *****************YOUR TURN! ******************************** */
 //Write your function prototype here:
+int numOfEven(int list[], int size); //compute and return the number of even integers in list
+void insert(int list[], int& size, int newInt, int position); //insert newInt into the list at index “position” and update the size of the list
+
+
 
 
 #endif
