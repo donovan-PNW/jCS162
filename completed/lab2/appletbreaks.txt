@@ -1,0 +1,8 @@
+break /home/eamon/CS162/lab2/app.cpp:1
+break /home/eamon/CS162/lab2/app.cpp:23
+break /home/eamon/CS162/lab2/app.cpp:40
+break /home/eamon/CS162/lab2/app.cpp:58
+break /home/eamon/CS162/lab2/app.cpp:78
+trace *0x0000555555554bee
+trace *0x0000555555554bee
+trace *0x0000555555554bee

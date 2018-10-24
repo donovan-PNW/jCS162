@@ -1,0 +1,904 @@
+//This program demos arrays
+#include <iostream>
+#include <iomanip>
+using namespace std;
+
+const int ROWS = 2;
+const int COLS = 3;
+
+//function prototypes
+void calcAvg(int scores[][COLS], int rows);
+
+int main()
+{
+    int scores[ROWS][COLS] = {0};
+    cout << "Please enter 6 scores:";
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            cin >> scores[i][j];
+        }
+    }
+    //output the whole array
+    
+    for(int i = 0; i < ROWS; i++)
+    {
+        for(int j = 0; j < COLS; j++)
+        {
+            cout << scores[i][j] << " ";
+        }
+        cout << endl;
+    }
+    cout << endl;
+	calcAvg(scores, ROWS);
+    return 0;
+}
+
+//function to calculate average
+void calcAvg(int scores[][COLS], int rows)
+{
+	double total = 0, avg = 0;
+	 //calculate the quiz average for each student
+    for(int i = 0; i < rows; i++)
+    {
+        total = 0;
+        for(int j = 0; j < COLS; j++)
+        {
+            total += scores[i][j];
+        }
+        avg = static_cast<double>(total) / COLS;
+        cout << "Average of student " << i + 1 << " = " << avg << endl;
+    }
+
+}
+//This program demos arrays
+#include <iostream>
+using namespace std;
+
+const int CAP = 10;
+
+int main()
+{
+    int list[CAP] = {0};
+    cout << "Please enter 5 numbers:";
+    for(int i = 0; i < 5; i++)
+    {
+        cin >> list[i];
+    }
+    //output the whole array
+    for(int i = 0; i < CAP; i++)
+    {
+        cout << list[i] << " ";
+    }
+    cout << endl; 
+    cout << list << endl;
+	cout << list + 1 << endl;
+    cout << endl;
+
+    return 0;
+}
+
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+#include <cstring>
+using namespace std;
+
+const int CAP = 100;
+const int MAXCHAR = 101;
+
+//function prototypes
+void openFile(char [], ifstream &);
+void initList(int [], int);
+void readList(ifstream &, int [], int&);
+void printList(const int [], const int);
+int largest(const int [], const int);
+void removeEven(int [], int &);
+
+int main()
+{
+    int list[CAP] = {0}, size = 0;
+    char fileName[MAXCHAR];
+    ifstream inFile;
+    cout << "Please enter filename:";
+    cin.get(fileName, MAXCHAR);
+    strcpy(fileName, "numbers.txt");
+    cin.ignore(100, '\n');
+    openFile(fileName, inFile);
+    //inits the list
+    initList(list, CAP);
+    readList(inFile, list, size);
+    printList(list, size);
+    //cout << "Largest in your list is " << largest(list, size) << endl;
+	removeEven(list, size);
+	printList(list, size);
+    inFile.close();
+    return 0;
+}
+
+//open the file
+void openFile(char fileName[], ifstream &inFile)
+{
+    inFile.open(fileName);
+    if(!inFile)
+    {
+        cout << "File did not open!! Program exiting!!!" << endl;
+        exit(0);
+    }
+}
+    
+    
+//init the array
+void initList(int list[], int cap)
+{
+    for(int i = 0; i < cap; i++)
+    {
+        list[i] = -1;
+    }
+}
+
+//reads numbers from the user    
+void readList(ifstream &inFile, int list[], int &size)
+{
+    int temp = 0, i = 0;
+    while(inFile >> temp)
+    {
+        if(size == CAP)
+        {
+            cout << "Error!! List full!!" << endl;
+            return;
+        }
+		else if(size == 0)
+		{
+        	list[size++] = temp;
+		}
+		else
+		{
+			for(i = 0; i < size; i++)
+			{
+				if(list[i] > temp)
+					break;
+			}
+			for(int j = size; j > i; j--)
+			{
+				list[j] = list[j-1];
+			}
+			list[i] = temp;
+			size++;
+		}
+    }
+}
+
+//prints the array
+void printList(const int list[], const int size)
+{
+    for(int i = 0; i < size; i++)
+    {
+        cout << list[i] << " ";
+    }
+    cout << endl;
+}
+
+//finds the largest number in the list 
+int largest(const int list[], const int size)
+{
+    ///insert code here
+}
+
+//removes all even numbers in the list
+void removeEven(int list[], int &size)
+{
+	if(!size)
+	{
+		return;
+	}
+	else
+	{
+		for(int i = 0; i < size; i++)
+		{
+			if(i == size)
+			{
+				return;
+			}
+			else if(!(list[i]%2))
+			{
+				for(int j = i; j < size-1; j++)
+				{
+					list[j] = list[j+1];
+				}
+				size--;
+				i--;
+			}
+		}
+	}
+}
+
+
+
+
+
+
+//This program demos char variables and char arrays
+#include <iostream>
+#include <string.h>
+
+using namespace std;
+
+int main()
+{
+    char option;
+    char name[101];
+    cout << "Would you like to continue (y/n):";
+    cin.get(option);
+    cin.ignore(100, '\n');
+    cout << "Please enter your name (100 characters or less):";
+    //cin.get(name, 101, '\n');
+    cin >> name;
+	getchar();
+    cout << "You said " << option << " and your name is " << name << endl;
+
+    return 0;
+}
+//This program demos data validation
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	int num1 = 0, num2 = 0;
+	cout << "Enter 2 whole numbers:";
+	cin >> num1;
+	while(!cin)
+	{
+		cout << "Illegal input! Please try again!" << endl;
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> num1;
+	}
+	cin  >> num2;
+	cout << "Num1 = " << num1 << " and Num2 = " << num2 << endl;
+
+	return 0;
+}
+#include <iostream>
+#include <fstream>
+using namespace std;
+
+int main()
+{
+	ifstream inFile;
+	char name[101];
+	double pay, tax, total;
+	inFile.open("sample.txt");
+	inFile >> name >> pay >> tax;
+	while(!inFile.eof())
+	{
+		total = pay + pay * tax;
+		cout << name << "   " << total << endl;
+		inFile >> name >> pay >> tax;
+	}
+	inFile.close();
+	return 0;
+}
+	
+//This program demos char arrays and inserting alphabetically
+#include <iostream>
+#include <fstream>
+#include <cstring>
+#include <cstdlib>
+
+using namespace std;
+
+//constants
+const int MAX = 101;
+const int CAP = 15;
+
+//function prototypes
+void readData(ifstream &inFile, char fruits[][MAX], int &size);
+bool isLessThan(char fruit1[], char fruit2[]);
+void printData(char fruits[][MAX], int size);
+
+//main function
+int main()
+{
+	ifstream inFile;
+	char fruits[CAP][MAX];
+	int size = 0;
+	inFile.open("fruits.txt");
+	if(!inFile)
+	{
+		cout << "File not found! Program exiting!!";
+		exit(0);
+	}
+
+	readData(inFile, fruits, size);
+	printData(fruits, size);
+	return 0;
+}
+
+//readData
+void readData(ifstream &inFile, char fruits[][MAX], int &size)
+{
+	char tempFruit[MAX];
+	int i = 0;
+	while(!inFile.eof())
+	{
+		inFile.get(tempFruit, MAX);
+		inFile.ignore(5, '\n');
+		if(size == CAP)
+		{
+			cout << "Array full!" << endl;
+			return;
+		}
+		if(!size)
+		{
+			strcpy(fruits[size], tempFruit);
+		}
+		else
+		{
+			for(i = 0; i < size; i++)
+			{
+				if(!(isLessThan(fruits[i], tempFruit)))
+				{
+					break;
+				}
+			}
+			for(int j = size; j > i; j--)
+			{
+				strcpy(fruits[j], fruits[j-1]);
+			}
+			//insert
+			strcpy(fruits[i], tempFruit);
+		}
+		size++;
+	}
+}
+
+//compares 2 fruits and returns true or false
+bool isLessThan(char fruit1[MAX], char fruit2[MAX])
+{
+	if(strcmp(fruit1, fruit2) < 0)
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
+}
+			
+//prints the data
+void printData(char fruits[][MAX], int size)
+{
+	for(int i = 0; i < size; i++)
+	{
+		cout << fruits[i] << endl;
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+//This program does data validation
+#include "tools.h"
+
+//function prototypes
+int readInt(char prompt[]);
+
+//main
+int main()
+{
+    int num1 = 0, num2 = 0;
+    char prompt[101];
+    strcpy(prompt, "Please enter a whole number:");
+    num1 = readInt(prompt);
+    strcpy(prompt, "Please enter another whole number:");
+    num2 = readInt(prompt);
+
+    cout << "You entered: " << num1 << " and " << num2 << endl;
+
+    return 0;
+}
+
+//readInt function
+int readInt(char prompt[])
+{
+	int temp = 0;
+	cout << prompt;
+	cin >> temp;
+	while(!cin)
+	{
+		cout << "Invalid input! Please try again!!" << endl;
+		cin.clear();
+		cin.ignore(100, '\n');
+		cin >> temp;
+	}
+	cin.ignore(100, '\n');
+	return temp;
+}
+	
+	
+
+
+
+//This program checks to see if a number is prime or not
+#include "tools.h"
+
+//function prototype
+bool isPrime(int);
+
+
+//main
+int main()
+{
+    int num = 0;
+    char prompt[101];
+    strcpy(prompt, "Please enter a whole number:");
+    num = readInt(prompt);
+    //call isPrime function
+    if(isPrime(num))
+    {
+        cout << "Your number is prime!" << endl;
+    }
+    else
+    {
+        cout << "Your number is not prime!" << endl;
+    }
+    
+    return 0;
+}
+
+//function to check if number is prime
+bool isPrime(int num)
+{
+    if(num == 1)
+        return false;
+    else if(num == 2)
+        return true;
+    else if (num % 2 == 0)
+        return false;
+    else
+    {
+        for(int i = 3; i <= num/2; i+=2)
+        {
+            if(num % i == 0)
+                 return false;
+        }
+        return true;
+    }
+} 
+    
+//This program demos reading from a file
+#include <iostream>
+#include <fstream>
+#include <string.h>
+#include <cstdlib>
+
+using namespace std;
+const int MAXCHAR = 101;
+
+//function prototypes
+void openFile(ifstream &inFile);
+void echoData(ifstream &inFile);
+void countVideo(ifstream &inFile);
+
+int main()
+{
+	ifstream inFile;
+	openFile(inFile);
+	echoData(inFile);
+	countVideo(inFile);
+	return 0;
+}
+
+//openFile function
+void openFile(ifstream &inFile)
+{
+	inFile.open("video.txt");
+	if(!inFile)
+	{
+		cout << "File not found!! Program exiting!!" << endl;
+		exit(0);
+	}
+}	
+
+//reads from the file and echoes the data to the screen
+void echoData(ifstream &inFile)
+{
+	char title[MAXCHAR], tempGenre[MAXCHAR];
+	int qty = 0;
+	inFile.get(title, MAXCHAR, ';');
+	while(!inFile.eof())
+	{
+		inFile.ignore(5, ';');
+		inFile >> qty;
+		inFile.ignore(5, ';');
+		inFile.get(tempGenre, MAXCHAR, '\n');
+		inFile.ignore(5, '\n');
+		cout << title << ';' << qty << ';' << tempGenre << endl;
+		inFile.get(title, MAXCHAR, ';');
+	}
+	//needed to rewind the file
+	inFile.clear();
+	inFile.seekg(0);
+}
+
+//counts the number of videos based on genre	
+void countVideo(ifstream &inFile)
+{
+	int countA = 0, countF = 0, countC = 0;
+	char title[MAXCHAR], tempGenre[MAXCHAR];
+    int qty = 0;
+    inFile.get(title, MAXCHAR, ';');
+    while(!inFile.eof())
+    {
+        inFile.ignore(5, ';');
+        inFile >> qty;
+        inFile.ignore(5, ';');
+        inFile.get(tempGenre, MAXCHAR, '\n');
+        if(strcmp(tempGenre, "ACTION") == 0)
+        {
+            countA++;
+        }
+		else if(strcmp(tempGenre, "FAMILY") == 0)
+		{
+			countF++;
+		}
+		else if(strcmp(tempGenre, "COMEDY") == 0)
+        {
+            countC++;
+        }
+		inFile.get(title, MAXCHAR, ';');
+	}
+	cout << "Action movies count = " << countA << endl;
+	cout << "Family movies count = " << countF << endl;
+	cout << "Comedy movies count = " << countC << endl;
+}
+
+
+
+				
+
+
+
+
+
+//This program demos static cast
+#include <iostream>
+using namespace std;
+
+int main()
+{
+    int num = 0;
+    cout << "Please enter a number between 0 and 35:";
+    cin >> num;
+    char letter;
+    //check if it is between 0 and 9
+    if(num >= 0 && num <= 9)
+    {
+        letter = num;
+        cout << "You entered: " << num << endl;
+    }
+    else if(num > 9 && num <= 35)
+    {
+        letter = num + 87;
+        cout << "You entered: " << letter  << endl;
+    }
+    else
+    {
+        cout << "Illegal input!" << endl;
+    }
+
+    return 0;
+}
+/*This program demos the strstr function
+Locate substring  strstr(str1, str2);
+Returns a pointer to the first occurrence of str2 in str1, or a null pointer if str2 is not part of str1.
+str1
+C string to be scanned.
+str2
+C string containing the sequence of characters to match.
+*/
+
+
+#include <iostream>
+#include <cstring>
+
+using namespace std;
+
+int main()
+{
+	char title[101];
+	char srchTitle[101];
+	//set title to be The Lion King
+	strcpy(title, "The Lion King");
+	//ask the user what they want to search for
+	cout << "Please enter search title:";
+	cin.get(srchTitle, 101);
+	if (strstr(title, srchTitle) != NULL)
+	{
+		cout << "Title found!" << endl;
+		cout << title << endl;
+	}
+	else
+	{
+		cout << "Title not found!" << endl;
+	}
+
+	return 0;
+}
+//This program demos reference parameters
+#include <iostream>
+using namespace std;
+
+//function prototypes
+void swap(int &, int &);
+int main()
+{
+    int x = 0, y = 0;
+    cout << "Please enter 2 numbers and I will swap them:";
+    cin >> x;
+    cin >> y;
+    cout << "Numbers before calling the swap function: " << x << " and " << y << endl;
+    //swap function
+    swap(x, y);
+    cout << "Numbers after calling the swap function: " << x << " and " << y << endl;
+    return 0;
+}
+
+//swap function
+void swap(int &x, int &y)
+{
+    int temp = 0;
+    temp = x;
+    x = y;
+    y = temp;
+	return;
+}
+//This is the implementation file for tools.h
+#include "tools.h"
+
+int readInt(char *prompt)
+{
+    int temp = 0;
+    cout << prompt;
+    cin >> temp;
+    while(!cin)
+   {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "Illegal input!! Please try again!!" << endl;
+        cin >> temp;
+   }
+   return temp;
+}
+
+#include <iostream>
+#include <cstring>
+using namespace std;
+
+//constants
+const int MAXCHAR = 101;
+
+//class Video
+class Video
+{
+	//private data members
+	private:
+		char title[MAXCHAR];
+		int qty;
+		double rating;
+	public:
+		//default constructor
+		Video();
+		//constructor with parameters
+		Video(char tempTitle[], int tempQty, double tempRating);
+		//member functions
+		//accessor function
+		void getTitle(char returnTitle[]);
+		int getQty();
+		void getRating(double &returnRating);
+		//mutator functions
+		void setTitle(char newTitle[]);
+		void setQty(int newQty);
+		void setRating(double newRating);
+		//print function
+		void printVideo() const;
+};
+
+//implementation for the Video Class
+Video::Video()
+{
+	strcpy(title, "No title");
+    qty = 0;
+    rating = 0;
+}
+
+Video::Video(char tempTitle[], int tempQty, double tempRating)
+{
+	strcpy(title, tempTitle);
+	qty = tempQty;
+	rating = tempRating;
+}
+
+void Video::getTitle(char returnTitle[])
+{
+	strcpy(returnTitle, title);
+}
+
+int Video::getQty()
+{
+	return qty;
+}
+
+void Video::getRating(double &returnRating)
+{
+	returnRating = rating;
+}
+
+//mutator functions
+void Video::setTitle(char newTitle[])
+{
+	strcpy(title, newTitle);
+}
+
+void Video::setQty(int newQty)
+{
+	qty = newQty;
+}
+void Video::setRating(double newRating)
+{
+	rating = newRating;
+}
+
+//print function
+void Video::printVideo() const
+{
+	cout << title << ';' << qty << ';' << rating << endl;
+}
+
+//main
+int main()
+{
+	Video aVideo("The Lion King", 23, 5.0);
+	aVideo.setTitle("Happy Feet");
+	aVideo.setQty(45);
+	aVideo.setRating(3.5);
+	Video myVideo;
+	//array of videos
+	Video list[10];
+	aVideo.printVideo();
+	myVideo.printVideo();
+	for(int i = 0; i < 10; i++)
+	{
+		list[i].printVideo();
+	}
+
+	return 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+		
+//This program demos reading from a file
+#include <iostream>
+#include <fstream>
+#include <string.h>
+
+using namespace std;
+enum GENRE {ACTION, FAMILY, COMEDY, HORROR, ILLEGAL};
+
+const int MAXCHAR = 101;
+
+//function prototypes
+void openFile(ifstream &inFile);
+void echoData(ifstream &inFile);
+void writeGenre(GENRE genre, char genreDesc[]);
+
+int main()
+{
+	ifstream inFile;
+	openFile(inFile);
+	echoData(inFile);
+	return 0;
+}
+
+//openFile function
+void openFile(ifstream &inFile)
+{
+	inFile.open("video.txt");
+	if(!inFile)
+	{
+		cout << "File not found!! Program exiting!!" << endl;
+		exit(0);
+	}
+}	
+
+//reads from the file and echoes the data to the screen
+void echoData(ifstream &inFile)
+{
+	char title[MAXCHAR], tempGenre[MAXCHAR];
+	GENRE genre;
+	int qty = 0;
+	inFile.get(title, MAXCHAR, ';');
+	while(!inFile.eof())
+	{
+		inFile.ignore(5, ';');
+		inFile >> qty;
+		inFile.ignore(5, ';');
+		//inFile >> genre;
+		inFile.get(tempGenre, MAXCHAR, ';');
+        if(strcmp(tempGenre, "ACTION") == 0)
+        {
+            genre = ACTION;
+        }
+        else if(strcmp(tempGenre, "FAMILY") == 0)
+        {
+            genre = FAMILY;
+        }
+        else if(strcmp(tempGenre, "COMEDY") == 0)
+        {
+            genre = COMEDY;
+        }
+        else if(strcmp(tempGenre, "HORROR") == 0)
+        {
+            genre = HORROR;
+        }
+        else
+        {
+            genre = ILLEGAL;
+        }
+
+		inFile.ignore(5, '\n');
+		writeGenre(genre, tempGenre);
+		cout << title << ';' << qty << ';' << tempGenre << endl;
+		inFile.get(title, MAXCHAR, ';');
+	}
+}
+
+//function to convert genre to a cstring
+void writeGenre(GENRE genre, char genreDesc[])
+{
+	switch(genre)
+	{
+		case 0:
+			strcpy(genreDesc, "ACTION");
+			break;
+		case 1:
+			strcpy(genreDesc, "FAMILY");
+			break;
+		case 2:
+			strcpy(genreDesc, "COMEDY");
+			break;
+		case 3:
+			strcpy(genreDesc, "HORROR");
+			break;
+		default:
+			strcpy(genreDesc, "ILLEGAL");
+	}
+}
+				
+
+
+
+
+

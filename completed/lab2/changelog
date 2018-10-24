@@ -1,0 +1,14 @@
+Eamon Donovan
+10/4/2018
+
+1) Changed mistyped variable on lines 19 and 41 from 'determinGrade()' to 'determineGrade()'
+
+2) Added #include <cstring> library to enable strcpy() functions
+
+3) Removed semicolon from line 53, which was causing the final "if" condition to exit early 
+and setting the program to change char grade to 'C' no matter what. Also changed syntax a 
+little (for my own preferences)
+
+
+
+
