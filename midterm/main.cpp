@@ -10,12 +10,13 @@ int main()
 	int list[CAP];
 	int size = 10;
     build(list, size);
-    display(list, size);
     //PLEASE PUT YOUR CODE HERE to call the function assigned
     count = numOfEven(list, size);
-    cout << count;
-    insert(list, size, newInt, position)
+    cout << "\nEVEN COUNT: " << count;
     display(list, size);
+    insert(list, size, newInt, position);
+    display(list, size);
+    cout << "ARRAY SIZE: " << size;
     
     
     return 0;
