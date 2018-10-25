@@ -13,8 +13,10 @@ int main()
     //PLEASE PUT YOUR CODE HERE to call the function assigned
     count = numOfEven(list, size);
     cout << "\nEVEN COUNT: " << count;
+    cout << "\nLIST BEFORE: " << endl;
     display(list, size);
     insert(list, size, newInt, position);
+    cout << "LIST AFTER 19 IS ADDED AT POSITION 3";
     display(list, size);
     cout << "ARRAY SIZE: " << size;
     
