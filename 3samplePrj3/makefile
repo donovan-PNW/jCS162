@@ -1,8 +1,10 @@
 all: video
 
-video: video.o tools.o driver.o
-	g++ video.o tools.o driver.o -o video
+video: videolist.o video.o tools.o driver.o
+	g++ videolist.o video.o tools.o driver.o -o video
 
+videolist.o: videolist.cpp
+	g++ -c videolist.cpp
 video.o: video.cpp
 	g++ -c video.cpp
 
