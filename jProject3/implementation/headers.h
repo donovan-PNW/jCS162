@@ -11,11 +11,11 @@ const int MAX_CHAR = 101;
 
 
 
-//data type for car
+//data type for carEntry
 
 enum whereFrom {US, Europe, Japan, Illegal};
 
-class carType 
+class carEntry 
 {
     private:
         char name[MAX_CHAR];
@@ -30,40 +30,59 @@ class carType
 	public:
 		//constructors
 		//default constructor
-		carType();
+		carEntry();
 		//constructor with parameters
-		carType(char [], double, int, double, double, double, double, int, whereFrom);
+		carEntry(char [], double, int, double, double, double, double, int, whereFrom);
 		//destructor
-		~carType();
+		~carEntry();
 		//mutator functions
-		void newCarName(char []);
-		void setGenre(Genre);
-		void setQty(int);
-		void setRating(double);
+		void setCarName(char []);
+        void setMPG();
+        void setCylinders();
+        void setDisplacement();
+        void setHorsepower();
+        void setWeight();
+        void setAcceleration();
+        void setModel();
+		void setOrigin(whereFrom);
 		//accessor functions
-		void getTitle(char []) const;
-		Genre getGenre() const;
-		int getQty() const;
-		double getRating() const;
+		void getCarName(char []) const;
+        void getMPG() const;
+        void getCylinders() const;
+        void getDisplacement() const;
+        void getHorsepower() const;
+        void getWeight() const;
+        void getAcceleration() const;
+        void getModel() const;
+		void getOrigin(whereFrom) const;
 		//print video
-		void printVideo();
-		void printVideo(ofstream &);		
+		void printCarEntry();
+		void printCarEntry(ofstream &);		
+};
+
+class carEntryList
+{
+    private:
+        
+
+
+    public:
 };
 
 void openFile(char [], ifstream &);
 void openFile(char [], ofstream &);
-void loadData(ifstream &, carType [], int &);
-void displayList(carType [], int);
-void searchByName(carType carList[], int size);
-void searchByOrigin(carType carList[], int size);
-void searchByMPG(carType carList[], int size);
+void loadData(ifstream &, carEntry [], int &);
+void displayList(carEntry [], int);
+void searchByName(carEntry carEntryList[], int size);
+void searchByOrigin(carEntry carEntryList[], int size);
+void searchByMPG(carEntry carEntryList[], int size);
 void convertCase(char tempStr[]);
-void addEntry(carType carList[], int &size);
+void addEntry(carEntry carEntryList[], int &size);
 int readInt(char prompt[]);
 double readDouble(char prompt[]);
 whereFrom newCarLocation(char letter);
-void removeEntry(carType carList[], int &size);
-void writeAndQuit(carType carList[], char fileName[], int size, ofstream &outFile);
+void removeEntry(carEntry carEntryList[], int &size);
+void writeAndQuit(carEntry carEntryList[], char fileName[], int size, ofstream &outFile);
 void displayMenu();
 
 #endif
