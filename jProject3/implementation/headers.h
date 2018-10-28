@@ -63,10 +63,22 @@ class carEntry
 class carEntryList
 {
     private:
-        
-
-
+        carEntry list[CAP];
+        int size;
     public:
+        //constructors
+        carEntryList();
+        carEntryLost(char []);
+        //destructor
+        ~carEntryList(); 
+        //data manipulators
+        void addEntry();
+        void removeEntry();
+        void displayList();
+        void searchByName();
+        void searchByOrigin();
+        void searchByMPG();
+        void writeAndQuit();
 };
 
 void openFile(char [], ifstream &);
