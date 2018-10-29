@@ -13,7 +13,7 @@ const int MAX_CHAR = 101;
 
 //data type for carEntry
 
-enum whereFrom {US, Europe, Japan, Illegal};
+enum whereFrom {US, EUROPE, JAPAN, ILLEGAL};
 
 class carEntry 
 {
@@ -68,7 +68,7 @@ class carEntryList
     public:
         //constructors
         carEntryList();
-        carEntryLost(char []);
+        carEntryList(char []);
         //destructor
         ~carEntryList(); 
         //data manipulators
@@ -81,20 +81,15 @@ class carEntryList
         void writeAndQuit();
 };
 
-void openFile(char [], ifstream &);
-void openFile(char [], ofstream &);
-void loadData(ifstream &, carEntry [], int &);
-void displayList(carEntry [], int);
-void searchByName(carEntry carEntryList[], int size);
-void searchByOrigin(carEntry carEntryList[], int size);
-void searchByMPG(carEntry carEntryList[], int size);
+//goes into constructor for carEntryList void openFile(char [], ifstream &);
+//goes into function for carEntryList void openFile(char [], ofstream &);
+//again, goes into constructor void loadData(ifstream &, carEntry [], int &);
+// goes into setOrigin() in carEntry whereFrom newCarLocation(char letter);
+
 void convertCase(char tempStr[]);
-void addEntry(carEntry carEntryList[], int &size);
 int readInt(char prompt[]);
 double readDouble(char prompt[]);
-whereFrom newCarLocation(char letter);
-void removeEntry(carEntry carEntryList[], int &size);
-void writeAndQuit(carEntry carEntryList[], char fileName[], int size, ofstream &outFile);
 void displayMenu();
+void readAndExec();
 
 #endif
