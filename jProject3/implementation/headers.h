@@ -37,24 +37,24 @@ class carEntry
 		~carEntry();
 		//mutator functions
 		void setCarName(char []);
-        void setMPG();
-        void setCylinders();
-        void setDisplacement();
-        void setHorsepower();
-        void setWeight();
-        void setAcceleration();
-        void setModel();
+        void setMPG(double);
+        void setCylinders(int);
+        void setDisplacement(double);
+        void setHorsepower(double);
+        void setWeight(double);
+        void setAcceleration(double);
+        void setModel(int);
 		void setOrigin(whereFrom);
 		//accessor functions
 		void getCarName(char []) const;
-        void getMPG() const;
-        void getCylinders() const;
-        void getDisplacement() const;
-        void getHorsepower() const;
-        void getWeight() const;
-        void getAcceleration() const;
-        void getModel() const;
-		void getOrigin(whereFrom) const;
+        double getMPG() const;
+        int getCylinders() const;
+        double getDisplacement() const;
+        double getHorsepower() const;
+        double getWeight() const;
+        double getAcceleration() const;
+        int getModel() const;
+		whereFrom getOrigin() const;
 		//print video
 		void printCarEntry();
 		void printCarEntry(ofstream &);		

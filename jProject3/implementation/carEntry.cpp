@@ -35,4 +35,91 @@ carEntry::~carEntry()
     //Kaboom!
 }
 
+//mutator functions
+void carEntry::setCarName(char newName[])
+{
+    strcpy(name, newName);
+}
+void carEntry::setMPG(double newMpg)
+{
+    mpg = newMpg;
+}
+void carEntry::setCylinders(int newCylinders)
+{
+    cylinders = newCylinders; 
+}
+void carEntry::setDisplacement(double newDisplacement)
+{
+    displacement = newDisplacement;
+}
+void carEntry::setHorsepower(double newHorsepower)
+{
+    horsepower = newHorsepower;
+}
+void carEntry::setWeight(double newWeight)
+{
+    weight = newWeight;
+}
+void carEntry::setAcceleration(double newAcceleleration)
+{
+    acceleration = newAcceleleration;
+}
+void carEntry::setModel(int newModel)
+{
+    model = newModel;
+}
+void carEntry::setOrigin(whereFrom newOrigin)
+{
+    origin = newOrigin;
+}
+
+
+ 
+//accessor functions
+void carEntry::getCarName(char returnName[]) const
+{
+    strcpy(returnName, name);
+}
+double carEntry::getMPG() const
+{
+    return mpg;
+}
+int carEntry::getCylinders() const
+{
+    return cylinders;
+}
+double carEntry::getDisplacement() const
+{
+    return displacement;
+}
+double carEntry::getHorsepower() const
+{
+    return horsepower;
+}
+double carEntry::getWeight() const
+{
+    return weight;
+}
+double carEntry::getAcceleration() const
+{
+    return acceleration;
+}
+int carEntry::getModel() const
+{
+    return model;
+}
+whereFrom carEntry::getOrigin() const
+{
+    return origin;
+}
+////print video
+//void printCarEntry();
+//void printCarEntry(ofstream &);		
+
+
+
+
+
+
+
 
