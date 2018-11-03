@@ -81,17 +81,12 @@ class carEntryList
         void writeAndQuit(char[]);
 };
 
-//goes into constructor for carEntryList void openFile(char [], ifstream &);
-//goes into function for carEntryList void openFile(char [], ofstream &);
-//again, goes into constructor void loadData(ifstream &, carEntry [], int &);
-// goes into setOrigin() in carEntry whereFrom newCarLocation(char letter);
-
 void convertCase(char tempStr[]);
 int readInt(char prompt[]);
 double readDouble(char prompt[]);
 void displayMenu();
-void readAndExec();
-//these two are in carEntry.cpp but should be in tools.cpp
+char readOption();
+void exeCmd(char, carEntryList & );
 void printOrigin(whereFrom tempOrigin, char originDesc[]);
 whereFrom readOrigin(char letter);
 

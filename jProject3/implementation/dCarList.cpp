@@ -124,6 +124,7 @@ void carEntryList::displayList()
 	}
 	cout << endl;
 }
+
 void carEntryList::searchByName()
 {
     
@@ -142,6 +143,7 @@ void carEntryList::searchByName()
 		}
 	}
 }
+
 void carEntryList::searchByOrigin()
 {
     char firstLetter;
@@ -163,9 +165,9 @@ void carEntryList::searchByOrigin()
 }
 void carEntryList::searchByMPG()
 {
-    
+    double tempMPG;
     double selectedMPG;
-    char response[MAX_CHAR];
+    int index;
     cout << "Please enter the minimum number of miles per gallon: " << endl;
     cin >> selectedMPG;
     while(!cin)
@@ -175,15 +177,25 @@ void carEntryList::searchByMPG()
         cout << "Please enter a number!  ";
         cin >> selectedMPG;
     }
+    for(int i=0; i < size; i++)
+    {
+        tempMPG = list[index].getMPG();
+        if(tempMPG == selectedMPG)
+        {
+            list[index].printCarEntry();
+        }
+        cout << endl;
+    }
 }
 
 void carEntryList::writeAndQuit(char fileName[])
 {
 	ofstream outFile;
 	outFile.open(fileName);
-	for(int i = 0; i < size; i++)
+	for(int index = 0; index < size; index++)
 	{
-		list[i].printCarEntry(outFile);
+	    list[index].printCarEntry(outFile);
+
 	}
 }
 
