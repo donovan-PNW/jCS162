@@ -72,13 +72,13 @@ class carEntryList
         //destructor
         ~carEntryList(); 
         //data manipulators
-        void addEntry();
+        void addEntry(carEntry);
         void removeEntry();
         void displayList();
         void searchByName();
         void searchByOrigin();
         void searchByMPG();
-        void writeAndQuit();
+        void writeAndQuit(char[]);
 };
 
 //goes into constructor for carEntryList void openFile(char [], ifstream &);

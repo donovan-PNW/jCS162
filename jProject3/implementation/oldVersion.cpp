@@ -344,7 +344,7 @@ void searchByMPG(carType carList[], int size)
     {
         cin.clear();
         cin.ignore(100, '\n');
-        cout << "Please enter a number!   :";
+        cout << "Please enter a number!  ";
         cin >> selectedMPG;
     }
     //selectedMPG = readDouble(response); 

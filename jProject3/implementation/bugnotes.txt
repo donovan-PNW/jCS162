@@ -1,1 +1,2 @@
 Note: IF cout is displaying things weirdly, check carList's constructor to see if the order that it is importing values is wrong
+IF delete function picks wrong line, change delIndex in carsList from 1 to 0
