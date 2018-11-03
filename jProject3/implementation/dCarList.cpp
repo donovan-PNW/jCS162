@@ -112,6 +112,7 @@ void carEntryList::removeEntry()
             list[i-1] = list[i];
         }
     }
+    cout << "video removed!" << endl;
     size--;
 }
 

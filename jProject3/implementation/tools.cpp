@@ -25,75 +25,86 @@ char readOption()
 
 void exeCmd(char option, carEntryList &dealership)
 {
-	Video aVideo;
-	switch (tolower(option))
+	carEntry thisCar;
+	switch (toupper(option))
 	{
-	case 'a':
-	    if(size >= CAP)
-        {
-            cout << "Your list is Full! Car cannot be added.";
-            return;
-        }
-        addVideo(aVideo);
-		store.addVideo(aVideo);
+	case 'S':
+		dealership.displayList();
+		break;
+	case 'I':
+//	    if(size >= CAP)
+//        {
+//            cout << "Your list is Full! Car cannot be added.";
+//            return;
+//        }
+        //why twice???
+        addEntry(thisCar);
+		dealership.addEntry(thisCar);
         break;
-	case 'd':
-		store.showList();
+	case 'D':
+        dealership.displayList();
+        dealership.removeEntry();
 		break;
-	case 'r':
-        store.showList();
-        store.removeVideo();
+	case 'N':
+        dealership.searchByName();
 		break;
-	case 't':
-        store.searchByTitle();
-		break;
-    case 'g':
-        store.searchByGenre();
+    case 'R':
+        dealership.searchByOrigin();
         break;
-	case 'q':
+    case 'M':
+        dealership.searchByMPG();
+        break;
+	case 'Q':
 		break;
 	default:
 		cout << "Invalid input, please try again!!" << endl;
 	}
 }
 
-//gets selection from user and returns a bool value
-//quitSignal=true ends the program (hopefully)
-bool getSelection()
-{
-    bool quitSignal = false;
-    cin >> tempSelection;
-    cin.ignore(100, '\n');
-    selection = toupper(tempSelection);
-    switch(selection)
-    {
-        case 'S':
-            displayList(carList, size);
-            break;
-        case 'I':
-            addEntry(carList, size);
-            break;
-        case 'D':
-            removeEntry(carList, size);
-            break;
-        case 'R':
-            searchByOrigin(carList, size);
-            break;
-        case 'N':
-            searchByName(carList, size);
-            break;
-        case 'M':
-            searchByMPG(carList, size);
-            break;
-        case 'Q':
-            writeAndQuit(carList, fileName, size, outFile);
-            quitSignal = true;
-            break;
-        default:
-        cout << "not an option! Please enter a valid option";
 
-    return quitSignal;
+void addEntry(carEntry &thisCar)
+{
+    char option;
+    char tempName[MAX_CHAR];
+    double tempMPG;
+    int tempCylinders;
+    double tempDisplacement;
+    double tempHorsepower;
+    double tempWeight;
+    double tempAcceleration;
+    int tempModel;
+    whereFrom tempOrigin;
+
+    cout << "Enter the new vehicle's name: ";
+    cin.get(tempName, MAX_CHAR, '\n');
+    cin.ignore(100, '\n');
+    tempMPG = readDouble("Enter the vehicle's MPG rating: ");
+    tempCylinders = readInt("Enter the vehicle's number of cylinders: ");
+    tempDisplacement = readDouble("Enter the vehicle's displacement: ");
+    tempHorsepower = readDouble("Enter the vehicle's horsepower: ");
+    tempWeight = readDouble("Enter the vehicle's weight: ");
+    tempAcceleration = readDouble("Enter the vehicle's acceleration: ");
+    tempModel = readInt("Enter the vehicle's model: ");
+    cout << "Enter the new vehicle's place of manufacture: [U]s, [E]urope, [J]apan: ";
+    cin >> option;
+    tempOrigin = readOrigin(option);
+    //mutator functions to populate thisCar
+    thisCar.setCarName(tempName);
+    thisCar.setMPG(tempMPG);
+    thisCar.setCylinders(tempCylinders);
+    thisCar.setDisplacement(tempDisplacement);
+    thisCar.setHorsepower(tempHorsepower);
+    thisCar.setWeight(tempWeight);
+    thisCar.setAcceleration(tempAcceleration);
+    thisCar.setOrigin(tempOrigin);
+    return;
 }
+
+
+
+
+
+
 
 
 
