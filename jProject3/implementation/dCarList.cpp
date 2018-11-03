@@ -69,6 +69,7 @@ carEntryList::carEntryList(char fileName[])
         inFile.ignore(MAX_CHAR, ';');
         inFile >> tempModel;
 		inFile.ignore(MAX_CHAR, ';');
+        //getline to get raw string, read it with readOrigin
         inFile.getline(originDesc, MAX_CHAR, '\n');
         tempOrigin = readOrigin(originDesc[0]);
 		inFile.ignore(MAX_CHAR, ';');
@@ -82,14 +83,49 @@ carEntryList::carEntryList(char fileName[])
 		thisCar.setAcceleration(tempAcceleration);
 		thisCar.setModel(tempModel);
 		thisCar.setOrigin(tempOrigin);
-		thisCar.setQty(tempQty);
 		addCar(thisCar);
-        //getline to get raw string, read it with readOrigin
-        //3rd line then starts the loop again
-		inFile.getline(genreDesc, MAX_CHAR, ';');
-		tempGenre = readGenre(genreDesc[0]);
-		inFile.getline(tempTitle, MAX_CHAR, ';');
+        //starts the loop again
+		inFile.getline(tempName, MAX_CHAR, ';');
 	}
 	inFile.close();
 
 }
+
+//destructor
+carEntryList::~carEntryList()
+{
+    //KABOOM!!
+}
+
+
+void carEntryList::addEntry()
+{
+
+}
+void carEntryList::removeEntry()
+{
+
+}
+void carEntryList::displayList()
+{
+
+}
+void carEntryList::searchByName()
+{
+
+}
+void carEntryList::searchByOrigin()
+{
+
+}
+void carEntryList::searchByMPG()
+{
+
+}
+void carEntryList::writeAndQuit()
+
+
+
+
+
+
