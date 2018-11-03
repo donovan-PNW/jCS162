@@ -1,5 +1,4 @@
 #include "headers.h"
-
 void displayMenu()
 {
     cout << "Welcome to the AutoWorld database!"<< endl << endl;
@@ -100,7 +99,46 @@ void addEntry(carEntry &thisCar)
     return;
 }
 
+int readInt(char prompt[])
+{
+    int temp = 0;
+    cout << prompt;
+    cin >> temp;
+    //data validation
+    while (!cin)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "Invalid input!! Please enter an int";
+        cin >> temp;
+    }
+    cin.ignore(100, '\n');
 
+    return temp;
+}
+
+double readDouble(char prompt[])
+{
+    double temp = 0;
+    cout << prompt;
+    cin >> temp;
+    while (!cin)
+    {
+        cin.clear();
+        cin.ignore(100, '\n');
+        cout << "Invalid input!! Please enter a double";
+        cin >> temp;
+    }
+    return temp;
+}
+
+void convertCase(char tempStr[])
+{
+	for (int i = 0; i < strlen(tempStr); i++)
+	{
+		tempStr[i] = toupper(tempStr[i]);
+	}
+}
 
 
 

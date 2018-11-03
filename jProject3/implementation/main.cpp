@@ -2,7 +2,6 @@
 
 int main()
 {
-	//create a list of videos.
 	char fileName[MAX_CHAR] = "cars.txt";
 	carEntryList dealership(fileName);
 	char option;

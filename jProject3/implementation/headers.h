@@ -81,7 +81,6 @@ class carEntryList
         void writeAndQuit(char[]);
 };
 
-void convertCase(char tempStr[]);
 int readInt(char prompt[]);
 double readDouble(char prompt[]);
 void displayMenu();
@@ -89,5 +88,7 @@ char readOption();
 void exeCmd(char, carEntryList & );
 void printOrigin(whereFrom tempOrigin, char originDesc[]);
 whereFrom readOrigin(char letter);
+void addEntry(carEntry &thisCar);
+void convertCase(char tempStr[]);
 
 #endif

@@ -1,29 +1,6 @@
 //Implementation for carEntryList
 #include "headers.h"
 
-
-//class carEntryList
-//{
-//    private:
-//        carEntry list[CAP];
-//        int size;
-//    public:
-//        //constructors
-//        carEntryList();
-//        carEntryList(char []);
-//        //destructor
-//        ~carEntryList(); 
-//        //data manipulators
-//        void addEntry();
-//        void removeEntry();
-//        void displayList();
-//        void searchByName();
-//        void searchByOrigin();
-//        void searchByMPG();
-//        void writeAndQuit();
-//};
-
-//default constructor
 carEntryList::carEntryList()
 {
     size = 0;
