@@ -14,7 +14,6 @@ carEntry::carEntry()
     model = 0;
     origin = ILLEGAL;
 }
-//TODO: ??? Why do you need to use temp variables here? why can't you just put them straight in?
 //parameter constructor
 carEntry::carEntry(char tempName[MAX_CHAR], double tempMpg, int tempCylinders, double tempDisplacement, double tempHorsepower, double tempWeight, double tempAcceleration, int tempModel, whereFrom tempOrigin)
 {
@@ -115,65 +114,65 @@ whereFrom carEntry::getOrigin() const
 void carEntry::printCarEntry()
 {
     char ioName[MAX_CHAR];
-    printCarEntry
+    printCarEntry(this->origin, originDesc);
+    cout << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
 }
 void carEntry::printCarEntry(ofstream &outFile)
 {
-    outfile <<  
+    char ioName[MAX_CHAR];
+    printCarEntry(this->origin, originDesc);
+    outFile << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
 }
 
 //LOOK AT THESE they'll convert enums
-//Genre readGenre(char);
-//void printGenre(Genre, char []);
+//whereFrom readwhereFrom(char);
+//void printwhereFrom(whereFrom, char []);
 
 
-//This function assigns a Genre based on the letter and returns the Genre
-//Genre readGenre(char letter)
-//{
-//    Genre tempGenre;
-//    switch(tolower(letter))
-//    {
-//        case 'a':
-//            tempGenre = static_cast<Genre>(0);
-//            break;
-//        case 'f':
-//            tempGenre = static_cast<Genre>(1);
-//            break;
-//        case 'c':
-//            tempGenre = static_cast<Genre>(2);
-//            break;
-//        case 'h':
-//            tempGenre = static_cast<Genre>(3);
-//            break;
-//        default:
-//            tempGenre = static_cast<Genre>(4);
-//    }
-//    return tempGenre;
-//}
-//
-////This function populates the genreDesc based on the Genre
-//void printGenre(Genre tempGenre, char genreDesc[])
-//{
-//    switch(tempGenre)
-//    {
-//        case 0:
-//            strcpy(genreDesc, "ACTION");
-//            break;
-//        case 1:
-//            strcpy(genreDesc, "FAMILY");
-//            break;
-//        case 2:
-//            strcpy(genreDesc, "COMEDY");
-//            break;
-//        case 3:
-//            strcpy(genreDesc, "HORROR");
-//            break;
-//        case 4:
-//            strcpy(genreDesc, "ILLEGAL");
-//            break;
-//    }
-//    return;
-//}
+//This function assigns a whereFrom based on the letter and returns the whereFrom
+whereFrom readOrigin(char letter)
+{
+    whereFrom tempOrigin;
+    switch(toupper(letter))
+    {
+        case 'U':
+            tempOrigin = static_cast<whereFrom>(0);
+            break;
+        case 'E':
+            tempOrigin = static_cast<whereFrom>(1);
+            break;
+        case 'J':
+            tempOrigin = static_cast<whereFrom>(2);
+            break;
+        default:
+            tempOrigin = static_cast<whereFrom>(3);
+    }
+    return tempOrigin;
+}
+
+//This function populates the originDesc based on the whereFrom
+void printwhereFrom(whereFrom tempOrigin, char originDesc[])
+{
+    switch(tempOrigin)
+    {
+        case 0:
+            strcpy(originDesc, "ACTION");
+            break;
+        case 1:
+            strcpy(originDesc, "FAMILY");
+            break;
+        case 2:
+            strcpy(originDesc, "COMEDY");
+            break;
+        case 3:
+            strcpy(originDesc, "HORROR");
+            break;
+        case 4:
+            strcpy(originDesc, "ILLEGAL");
+            break;
+    }
+    return;
+}
 
 
 
