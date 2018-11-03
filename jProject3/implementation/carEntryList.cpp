@@ -29,10 +29,9 @@ carEntryList::carEntryList(char fileName[])
         exit(0);
     }
 //TODO: ask why you start tempName outside of while loop
+    inFile.getline(tempName, MAX_CHAR, ';');
 	while(!inFile.eof())
 	{
-        inFile.getline(tempName, MAX_CHAR, ';');
-        cout << tempName << endl;
         inFile >> tempMpg;
         inFile.ignore(MAX_CHAR, ';');
         inFile >> tempCylinders;
@@ -47,23 +46,28 @@ carEntryList::carEntryList(char fileName[])
         inFile.ignore(MAX_CHAR, ';');
         inFile >> tempModel;
 		inFile.ignore(MAX_CHAR, ';');
-        cout << tempModel << endl;
-//        //getline to get raw string, read it with readOrigin
-//        inFile.getline(originDesc, MAX_CHAR, '\n');
-//        tempOrigin = readOrigin(originDesc[0]);
-//		//populate carEntry;
-//		thisCar.setCarName(tempName);
-//		thisCar.setMPG(tempMpg);
-//		thisCar.setCylinders(tempCylinders);
-//		thisCar.setDisplacement(tempDisplacement);
-//		thisCar.setHorsepower(tempHorsepower);
-//		thisCar.setWeight(tempWeight);
-//		thisCar.setAcceleration(tempAcceleration);
-//		thisCar.setModel(tempModel);
-//		thisCar.setOrigin(tempOrigin);
-//		addEntry(thisCar);
-//        //starts the loop again
-//		inFile.getline(tempName, MAX_CHAR, ';');
+        //getline to get raw string, read it with readOrigin
+        inFile.getline(originDesc, MAX_CHAR, '\n');
+        tempOrigin = readOrigin(originDesc[0]);
+        inFile.getline(tempName, MAX_CHAR, ';');
+        if(inFile.peek() == EOF)
+        {
+            break;
+        }
+        cout << tempName << ';' << tempMpg << ';' << tempCylinders  << tempDisplacement << ';' << tempHorsepower << ';' << tempWeight << ';' << tempAcceleration << ';' << tempModel << ';' << tempOrigin << endl;
+		//populate carEntry;
+		thisCar.setCarName(tempName);
+		thisCar.setMPG(tempMpg);
+		thisCar.setCylinders(tempCylinders);
+		thisCar.setDisplacement(tempDisplacement);
+		thisCar.setHorsepower(tempHorsepower);
+		thisCar.setWeight(tempWeight);
+		thisCar.setAcceleration(tempAcceleration);
+		thisCar.setModel(tempModel);
+		thisCar.setOrigin(tempOrigin);
+		addEntry(thisCar);
+        //starts the loop again
+		inFile.getline(tempName, MAX_CHAR, ';');
 	}
 	inFile.close();
 
