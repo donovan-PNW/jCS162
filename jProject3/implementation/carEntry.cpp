@@ -151,7 +151,7 @@ void printOrigin(whereFrom tempOrigin, char originDesc[])
     switch(tempOrigin)
     {
         case 0:
-            strcpy(originDesc, "USA");
+            strcpy(originDesc, "US");
             break;
         case 1:
             strcpy(originDesc, "EUROPE");
