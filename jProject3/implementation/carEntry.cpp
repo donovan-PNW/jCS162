@@ -113,21 +113,16 @@ whereFrom carEntry::getOrigin() const
 }
 void carEntry::printCarEntry()
 {
-    char ioName[MAX_CHAR];
-    printCarEntry(this->origin, originDesc);
+    char originDesc[MAX_CHAR];
+    printOrigin(this->origin, originDesc);
     cout << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
 }
 void carEntry::printCarEntry(ofstream &outFile)
 {
-    char ioName[MAX_CHAR];
-    printCarEntry(this->origin, originDesc);
+    char originDesc[MAX_CHAR];
+    printOrigin(this->origin, originDesc);
     outFile << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
 }
-
-//LOOK AT THESE they'll convert enums
-//whereFrom readwhereFrom(char);
-//void printwhereFrom(whereFrom, char []);
-
 
 //This function assigns a whereFrom based on the letter and returns the whereFrom
 whereFrom readOrigin(char letter)
@@ -151,25 +146,21 @@ whereFrom readOrigin(char letter)
 }
 
 //This function populates the originDesc based on the whereFrom
-void printwhereFrom(whereFrom tempOrigin, char originDesc[])
+void printOrigin(whereFrom tempOrigin, char originDesc[])
 {
     switch(tempOrigin)
     {
         case 0:
-            strcpy(originDesc, "ACTION");
+            strcpy(originDesc, "USA");
             break;
         case 1:
-            strcpy(originDesc, "FAMILY");
+            strcpy(originDesc, "EUROPE");
             break;
         case 2:
-            strcpy(originDesc, "COMEDY");
+            strcpy(originDesc, "JAPAN");
             break;
-        case 3:
-            strcpy(originDesc, "HORROR");
-            break;
-        case 4:
+        default:
             strcpy(originDesc, "ILLEGAL");
-            break;
     }
     return;
 }

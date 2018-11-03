@@ -91,5 +91,8 @@ int readInt(char prompt[]);
 double readDouble(char prompt[]);
 void displayMenu();
 void readAndExec();
+//these two are in carEntry.cpp but should be in tools.cpp
+void printOrigin(whereFrom tempOrigin, char originDesc[]);
+whereFrom readOrigin(char letter);
 
 #endif
