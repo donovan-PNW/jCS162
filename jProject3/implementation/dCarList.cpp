@@ -34,7 +34,7 @@ carEntryList::carEntryList(char fileName[])
     size = 0;
     ifstream inFile;
     carEntry thisCar;
-    char tempName[MAX_CHAR], originDesc[MAX_CHAR];
+    char tempName[MAX_CHAR];
     double tempMpg;
     int tempCylinders;
     double tempDisplacement;
@@ -42,6 +42,7 @@ carEntryList::carEntryList(char fileName[])
     double tempWeight;
     double tempAcceleration;
     int tempModel;
+    char originDesc[MAX_CHAR];
     whereFrom tempOrigin;
 
     inFile.open(fileName);
@@ -68,13 +69,21 @@ carEntryList::carEntryList(char fileName[])
         inFile.ignore(MAX_CHAR, ';');
         inFile >> tempModel;
 		inFile.ignore(MAX_CHAR, ';');
+        inFile.getline(originDesc, MAX_CHAR, '\n');
+        tempOrigin = readOrigin(originDesc[0]);
 		inFile.ignore(MAX_CHAR, ';');
-		//populate aVideo;
-		aVideo.setTitle(tempTitle);
-		aVideo.setGenre(tempGenre);
-		aVideo.setQty(tempQty);
-		aVideo.setRating(tempRating);
-		addVideo(aVideo);
+		//populate carEntry;
+		thisCar.setCarName(tempName);
+		thisCar.setMPG(tempMpg);
+		thisCar.setCylinders(tempCylinders);
+		thisCar.setDisplacement(tempDisplacement);
+		thisCar.setHorsepower(tempHorsepower);
+		thisCar.setWeight(tempWeight);
+		thisCar.setAcceleration(tempAcceleration);
+		thisCar.setModel(tempModel);
+		thisCar.setOrigin(tempOrigin);
+		thisCar.setQty(tempQty);
+		addCar(thisCar);
         //getline to get raw string, read it with readOrigin
         //3rd line then starts the loop again
 		inFile.getline(genreDesc, MAX_CHAR, ';');
