@@ -20,32 +20,19 @@ bool Student::isLessThanByID(const Student &aStudent) const
     char otherStudent[MAX_CHAR];
     strcpy(otherStudent, aStudent.id);
     int value = strcmp(id, otherStudent);
-    cout << value << endl;
     if(value < 0)
     {
         isLessThan = true; 
-        cout << "This student has a lower ID number than its comparison" << endl;
     }
-    else if(value > 0)
-    {
-        cout << "This student has a higher ID number than its comparison" << endl;
-    
-    }
-    cout << isLessThan << endl;
     return isLessThan;
 }
 
-bool Student::qualifyForHonor(const double &minGpaForHonor) const
+bool Student::qualifyForHonor(double &minGpaForHonor) const
 {
     bool qualifies = false;
     if(gpa >= minGpaForHonor)
     {
         qualifies = true;
-        cout << "Yep!" << endl;
-    }
-    else if(gpa < minGpaForHonor)
-    {
-        cout << "Nope :(" << endl;
     }
     return qualifies;
 }
