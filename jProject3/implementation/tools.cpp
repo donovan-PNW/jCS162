@@ -16,8 +16,10 @@ void displayMenu()
 
 char readOption()
 {
-	char input;
-	cin >> input;
+	char tempInput;
+    char input;
+	cin >> tempInput;
+    input = toupper(tempInput);
 	cin.ignore(100, '\n');
 	return input;
 }
@@ -25,7 +27,7 @@ char readOption()
 void exeCmd(char option, carEntryList &dealership)
 {
 	carEntry thisCar;
-	switch (toupper(option))
+	switch (option)
 	{
 	case 'S':
 		dealership.displayList();
