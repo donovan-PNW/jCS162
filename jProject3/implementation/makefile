@@ -16,4 +16,4 @@ tools.o: tools.cpp
 	g++ -g -c tools.cpp
 
 make clean:
-	rm -f carEntry.o carEntryList.o main.o tools.o
+	rm -f exec carEntry.o carEntryList.o main.o tools.o
