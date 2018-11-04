@@ -3,3 +3,5 @@ IF delete function picks wrong line, change delIndex in carsList from 1 to 0
 add an if statement to search by origin to give output if you don't enter U E or J
 line 32 of tools.cpp -- she adds two addVideos in a row for some reason
 Carentrylist line 53: STILL can't figure why I need to stop the loop manually? It will pick up a new line of gibberish if this if statment isn't included
+searchbyMPG is all fucked up for some reason
+newCar takes all input EXCEPT int model for some reason???

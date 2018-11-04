@@ -120,6 +120,7 @@ void carEntryList::searchByName()
 		convertCase(tempName);
 		if(strstr(tempName, searchName) != NULL)
 		{
+            cout << i+1 << ") ";
 			list[i].printCarEntry();
 		}
 	}
@@ -138,6 +139,7 @@ void carEntryList::searchByOrigin()
         tempOrigin = list[index].getOrigin();
         if(searchOrigin == tempOrigin)
         {
+            cout << index+1 << ") ";
             list[index].printCarEntry();
         }
     
@@ -158,14 +160,14 @@ void carEntryList::searchByMPG()
         cout << "Please enter a number!  ";
         cin >> selectedMPG;
     }
-    for(int i=0; i < size; i++)
+    for(index = 0; index < size; index++)
     {
         tempMPG = list[index].getMPG();
-        if(tempMPG == selectedMPG)
+        if(tempMPG >= selectedMPG)
         {
+            cout << index+1 << ") ";
             list[index].printCarEntry();
         }
-        cout << endl;
     }
 }
 
