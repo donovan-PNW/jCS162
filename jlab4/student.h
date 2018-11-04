@@ -13,7 +13,7 @@ public:
     Student();
     Student(const char initId[], double initGPA);
 	bool isLessThanByID(const Student& aStudent) const;
-	bool qualifyForHonor(double &minGpaForHonor) const;
+	bool qualifyForHonor(const double &) const;
 	void print()const;
 private:
 	char 	id[MAX_CHAR];

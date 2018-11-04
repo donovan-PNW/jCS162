@@ -35,12 +35,17 @@ bool Student::isLessThanByID(const Student &aStudent) const
     return isLessThan;
 }
 
-bool Student::qualifyForHonor(double &minGpaForHonor) const
+bool Student::qualifyForHonor(const double &minGpaForHonor) const
 {
     bool qualifies = false;
     if(gpa >= minGpaForHonor)
     {
         qualifies = true;
+        cout << "Yep!" << endl;
+    }
+    else if(gpa < minGpaForHonor)
+    {
+        cout << "Nope :(" << endl;
     }
     return qualifies;
 }

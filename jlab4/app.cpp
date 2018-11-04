@@ -2,7 +2,6 @@
 
 int main()
 {
-    bool isittho;
 	Student s1("G10", 3.9);
     Student s2("G20", 3.5);
 
@@ -11,9 +10,8 @@ int main()
 
 	//write code to test Student::isLessThanByID
     s1.isLessThanByID(s2);
-    //cout << isittho << endl;
 	
 	//write code to test Student::qualifyForHonor
-
+    s1.qualifyForHonor(minGpaForHonor);
 	return 0;
 }
