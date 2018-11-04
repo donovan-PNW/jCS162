@@ -66,6 +66,7 @@ void exeCmd(char option, carEntryList &dealership)
 void addEntry(carEntry &thisCar)
 {
     char option;
+    char tempOption;
     char tempName[MAX_CHAR];
     double tempMPG;
     int tempCylinders;
@@ -87,7 +88,18 @@ void addEntry(carEntry &thisCar)
     tempAcceleration = readDouble("Enter the vehicle's acceleration: ");
     tempModel = readInt("Enter the vehicle's model: ");
     cout << "Enter the new vehicle's place of manufacture: [U]s, [E]urope, [J]apan: ";
-    cin >> option;
+    cin >> tempOption;
+    cout << tempOption;
+    option = toupper(tempOption);
+    while((option != 'U') && (option != 'E') && (option != 'J')) 
+    {
+        cin.clear();
+        cin.ignore(MAX_CHAR, '\n');
+        cout << "Please enter a valid entry: U, E, or J: ";
+        cin >> tempOption;
+        cout << tempOption;
+        option = toupper(tempOption);
+    }
     tempOrigin = readOrigin(option);
     //mutator functions to populate thisCar
     thisCar.setCarName(tempName);
@@ -97,6 +109,7 @@ void addEntry(carEntry &thisCar)
     thisCar.setHorsepower(tempHorsepower);
     thisCar.setWeight(tempWeight);
     thisCar.setAcceleration(tempAcceleration);
+    thisCar.setModel(tempModel);
     thisCar.setOrigin(tempOrigin);
     return;
 }

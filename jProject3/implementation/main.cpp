@@ -3,7 +3,6 @@
 int main()
 {
 	char fileName[MAX_CHAR] = "cars.txt";
-    char outFileName[MAX_CHAR] = "outcars.txt";
 	carEntryList dealership(fileName);
     dealership.displayList();
 	char option;
@@ -15,10 +14,8 @@ int main()
     }while(toupper(option != 'Q'));
 
 
-    dealership.writeAndQuit(outFileName);
+    dealership.writeAndQuit(fileName);
 
 	return 0;
 }
-
-
 

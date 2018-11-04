@@ -84,7 +84,7 @@ void carEntryList::addEntry(carEntry thisCar)
 void carEntryList::removeEntry()
 {
 	int delIndex = 1;
-    delIndex = readInt("Please enter index of video to delete:");
+    delIndex = readInt("Please enter index of the car you would like to remove: ");
     if(delIndex < size)
     {
          for(int i = delIndex; i < size; i++)
@@ -92,7 +92,7 @@ void carEntryList::removeEntry()
             list[i-1] = list[i];
         }
     }
-    cout << "video removed!" << endl;
+    cout << "this car has beeen removed!" << endl;
     size--;
 }
 
