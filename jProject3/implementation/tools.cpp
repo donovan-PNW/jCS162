@@ -33,12 +33,6 @@ void exeCmd(char option, carEntryList &dealership)
 		dealership.displayList();
 		break;
 	case 'I':
-//	    if(size >= CAP)
-//        {
-//            cout << "Your list is Full! Car cannot be added.";
-//            return;
-//        }
-        //why twice???
         addEntry(thisCar);
 		dealership.addEntry(thisCar);
         break;
@@ -111,6 +105,7 @@ void addEntry(carEntry &thisCar)
     thisCar.setAcceleration(tempAcceleration);
     thisCar.setModel(tempModel);
     thisCar.setOrigin(tempOrigin);
+    cout << "This car has been added to the database! " << endl << endl;
     return;
 }
 

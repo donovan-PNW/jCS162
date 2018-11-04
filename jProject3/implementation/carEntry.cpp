@@ -115,7 +115,7 @@ void carEntry::printCarEntry()
 {
     char originDesc[MAX_CHAR];
     printOrigin(this->origin, originDesc);
-    cout << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
+    cout << name << ';' << mpg << "mpg" << ';' << cylinders << "cylinders"<< ';' << displacement << "Ldisplacement" << ';' << horsepower << "horsepower"<< ';' << weight << "lbs" << ';' << acceleration << "MPH/minute" << ';' << model << "type" << ';' <<"nationality:" << originDesc << endl;
 }
 void carEntry::printCarEntry(ofstream &outFile)
 {

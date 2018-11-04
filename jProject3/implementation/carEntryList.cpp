@@ -1,4 +1,3 @@
-//Implementation for carEntryList
 #include "headers.h"
 
 carEntryList::carEntryList()
@@ -28,7 +27,6 @@ carEntryList::carEntryList(char fileName[])
         cout << "Cannot open file! Exiting!!" << endl;
         exit(0);
     }
-//TODO: ask why you start tempName outside of while loop
 	while(!inFile.eof())
 	{
         inFile.getline(tempName, MAX_CHAR, ';');
@@ -49,7 +47,6 @@ carEntryList::carEntryList(char fileName[])
         //getline to get raw string, read it with readOrigin
         inFile.getline(originDesc, MAX_CHAR, '\n');
         tempOrigin = readOrigin(originDesc[0]);
-        //cout << tempName << ';' << tempMpg << ';' << tempCylinders  << tempDisplacement << ';' << tempHorsepower << ';' << tempWeight << ';' << tempAcceleration << ';' << tempModel << ';' << tempOrigin << endl;
 		//populate carEntry;
 		thisCar.setCarName(tempName);
 		thisCar.setMPG(tempMpg);
@@ -92,7 +89,7 @@ void carEntryList::removeEntry()
             list[i-1] = list[i];
         }
     }
-    cout << "this car has beeen removed!" << endl;
+    cout << "this car has beeen removed!" << endl << endl;
     size--;
 }
 
