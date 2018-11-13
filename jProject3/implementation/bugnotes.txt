@@ -1,5 +1,0 @@
-add an if statement to search by origin to give output if you don't enter U E or J
-line 32 of tools.cpp -- she adds two addVideos in a row for some reason
-Carentrylist line 53: STILL can't figure why I need to stop the loop manually? It will pick up a new line of gibberish if this if statment isn't included
-one last error handling issue: give feedback if input for new car isn't u e or j
-also -- basic feedback? "car entered/deleted?"
