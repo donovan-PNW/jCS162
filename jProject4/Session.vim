@@ -664,9 +664,10 @@ endif
 set shortmess=aoO
 badd +1 carEntry.cpp
 badd +0 carEntryList.cpp
-badd +0 headers.h
-badd +0 tools.cpp
+badd +34 headers.h
+badd +33 tools.cpp
 badd +0 main.cpp
+badd +16 makefile
 argglobal
 silent! argdel *
 $argadd carEntry.cpp
@@ -681,8 +682,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 106 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -800,12 +801,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 53)
+let s:l = 202 - ((40 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+202
+normal! 033|
 wincmd w
 argglobal
 if bufexists('carEntry.cpp') | buffer carEntry.cpp | else | edit carEntry.cpp | endif
@@ -925,15 +926,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 53)
+let s:l = 15 - ((14 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+15
+normal! 021|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 106 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 tabedit main.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
@@ -948,8 +949,8 @@ set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
 exe 'vert 1resize ' . ((&columns * 44 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 81 + 106) / 212)
-exe 'vert 3resize ' . ((&columns * 85 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 82 + 106) / 212)
+exe 'vert 3resize ' . ((&columns * 84 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -1067,15 +1068,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 21 - ((20 * winheight(0) + 26) / 52)
+let s:l = 1 - ((0 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-21
-normal! 0
+1
+normal! 02|
 wincmd w
 argglobal
-if bufexists('tools.cpp') | buffer tools.cpp | else | edit tools.cpp | endif
+if bufexists('headers.h') | buffer headers.h | else | edit headers.h | endif
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -1192,15 +1193,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 85 - ((18 * winheight(0) + 26) / 52)
+let s:l = 83 - ((39 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-85
-normal! 0
+83
+normal! 024|
 wincmd w
 argglobal
-if bufexists('headers.h') | buffer headers.h | else | edit headers.h | endif
+if bufexists('tools.cpp') | buffer tools.cpp | else | edit tools.cpp | endif
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -1317,17 +1318,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 51 - ((32 * winheight(0) + 26) / 52)
+let s:l = 37 - ((36 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-51
-normal! 0
+37
+normal! 037|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 44 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 81 + 106) / 212)
-exe 'vert 3resize ' . ((&columns * 85 + 106) / 212)
-tabnext 2
+exe 'vert 2resize ' . ((&columns * 82 + 106) / 212)
+exe 'vert 3resize ' . ((&columns * 84 + 106) / 212)
+tabnext 1
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf

@@ -6,7 +6,8 @@
 
 using namespace std;
 
-const int CAP = 1000;
+const int CAP = 3;
+const int GROWTH = 2;
 const int MAX_CHAR = 101;
 
 
@@ -18,7 +19,7 @@ enum whereFrom {US, EUROPE, JAPAN, ILLEGAL};
 class carEntry 
 {
     private:
-        char name[MAX_CHAR];
+        char *name;
         double mpg;
         int cylinders;
         double displacement;
@@ -63,7 +64,7 @@ class carEntry
 class carEntryList
 {
     private:
-        carEntry list[CAP];
+        carEntry *list;
         int size;
     public:
         //constructors
@@ -79,6 +80,7 @@ class carEntryList
         void searchByOrigin();
         void searchByMPG();
         void writeAndQuit(char[]);
+        void growList();
 };
 
 int readInt(char prompt[]);

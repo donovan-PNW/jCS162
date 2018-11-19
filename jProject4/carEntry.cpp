@@ -4,6 +4,8 @@
 //default constructor
 carEntry::carEntry()
 {
+    //allocate memory
+    name = new char[MAX_CHAR];
     strcpy(name, "Blank Car");
     mpg = 0;
     cylinders = 0;
@@ -17,6 +19,7 @@ carEntry::carEntry()
 //parameter constructor
 carEntry::carEntry(char tempName[MAX_CHAR], double tempMpg, int tempCylinders, double tempDisplacement, double tempHorsepower, double tempWeight, double tempAcceleration, int tempModel, whereFrom tempOrigin)
 {
+    name = new char[strlen(tempName) + 1];
     strcpy(name, tempName);
     mpg = tempMpg;
     cylinders = tempCylinders;
@@ -115,7 +118,7 @@ void carEntry::printCarEntry()
 {
     char originDesc[MAX_CHAR];
     printOrigin(this->origin, originDesc);
-    cout << name << ';' << mpg << "mpg" << ';' << cylinders << "cylinders"<< ';' << displacement << "Ldisplacement" << ';' << horsepower << "horsepower"<< ';' << weight << "lbs" << ';' << acceleration << "MPH/minute" << ';' << model << "type" << ';' <<"nationality:" << originDesc << endl;
+    cout << name << ';' << mpg << ';' << cylinders << ';' << displacement << ';' << horsepower << ';' << weight << ';' << acceleration << ';' << model << ';' << originDesc << endl;
 }
 void carEntry::printCarEntry(ofstream &outFile)
 {

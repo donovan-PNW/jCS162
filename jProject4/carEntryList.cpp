@@ -2,11 +2,15 @@
 
 carEntryList::carEntryList()
 {
+    int capacity = CAP;
+    list = new carEntry[capacity];
     size = 0;
 }
 
 carEntryList::carEntryList(char fileName[])
 { 
+    int capacity = CAP;
+    list = new carEntry[capacity];
     size = 0;
     ifstream inFile;
     carEntry thisCar;
@@ -72,9 +76,18 @@ carEntryList::carEntryList(char fileName[])
 carEntryList::~carEntryList()
 {
     //KABOOM!!
+    if(list)
+    {
+        delete [] list;
+        list = NULL;
+    }
 }
 void carEntryList::addEntry(carEntry thisCar)
 {
+    if(size==capacity)
+    {
+        growList(); 
+    }
     list[size++] = thisCar;
 }
 
@@ -179,7 +192,18 @@ void carEntryList::writeAndQuit(char fileName[])
 	}
 }
 
+//growlist
+void carEntryList::growList()
+{
+    capacity += GROWTH;
+    char tempTitle[MAX_CHAR];
 
+    carEntry *tempList = new carEntryList[capacity];
+    for (int index = 0; index < size; index++)
+    {
+        tempList[index] = list[index];
+    }
+}
 
 
 
