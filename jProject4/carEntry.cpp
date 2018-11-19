@@ -31,15 +31,33 @@ carEntry::carEntry(char tempName[MAX_CHAR], double tempMpg, int tempCylinders, d
     origin = tempOrigin;
 }
 
+//copy constructor?
+carEntry::carEntry(const carEntry &thisCar)
+{
+    name = new char[strlen(thisCar.name) + 1];
+    *this = thisCar;
+}
+
 //destructor
 carEntry::~carEntry()
 {
     //Kaboom!
+    if(name)
+    {
+        delete [] name;
+        name = NULL;
+    }
 }
 
 //mutator functions
 void carEntry::setCarName(char newName[])
 {
+    if(name)
+    {
+        delete [] name;
+        name = NULL;
+    }
+    name = new char[strlen(newName)+1];
     strcpy(name, newName);
 }
 void carEntry::setMPG(double newMpg)
@@ -168,6 +186,25 @@ void printOrigin(whereFrom tempOrigin, char originDesc[])
     return;
 }
 
+const carEntry& carEntry::operator= (const carEntry& thisCar)
+{
+    if(this == &thisCar)
+        return *this;
+    else
+    {
+        this->setCarName(thisCar.name);
+        this->mpg = thisCar.mpg;
+        this->cylinders = thisCar.cylinders;
+        this->displacement = thisCar.displacement;
+        this->horsepower = thisCar.horsepower;
+        this->weight = thisCar.weight;
+        this->acceleration = thisCar.acceleration;
+        this->model = thisCar.model;
+        this->origin = thisCar.origin;
 
+        return *this;
+    }
+
+}
 
 

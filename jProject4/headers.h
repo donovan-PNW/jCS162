@@ -34,6 +34,8 @@ class carEntry
 		carEntry();
 		//constructor with parameters
 		carEntry(char [], double, int, double, double, double, double, int, whereFrom);
+        //copy constructor
+        carEntry(const carEntry &thisCar);
 		//destructor
 		~carEntry();
 		//mutator functions
@@ -59,6 +61,8 @@ class carEntry
 		//print video
 		void printCarEntry();
 		void printCarEntry(ofstream &);		
+        //reassignment
+        const carEntry& operator= (const carEntry& thisCar);
 };
 
 class carEntryList
@@ -66,6 +70,7 @@ class carEntryList
     private:
         carEntry *list;
         int size;
+        int capacity;
     public:
         //constructors
         carEntryList();

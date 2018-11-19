@@ -196,13 +196,16 @@ void carEntryList::writeAndQuit(char fileName[])
 void carEntryList::growList()
 {
     capacity += GROWTH;
-    char tempTitle[MAX_CHAR];
+    char tempName[MAX_CHAR];
 
-    carEntry *tempList = new carEntryList[capacity];
+    carEntry *tempList = new carEntry[capacity];
     for (int index = 0; index < size; index++)
     {
         tempList[index] = list[index];
     }
+    delete[] list;
+    list = tempList;
+    tempList = NULL;
 }
 
 
