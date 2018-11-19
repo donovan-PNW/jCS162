@@ -1,7 +1,7 @@
 all: proj4
 
 proj4: carEntry.o carEntryList.o main.o tools.o
-	g++ -std=c++11 -g carEntry.o carEntryList.o main.o tools.o -o proj3
+	g++ -std=c++11 -g carEntry.o carEntryList.o main.o tools.o -o proj4
 
 carEntry.o: carEntry.cpp
 	g++ -std=c++11 -g -c carEntry.cpp
@@ -16,4 +16,4 @@ tools.o: tools.cpp
 	g++ -std=c++11 -g -c tools.cpp
 
 make clean:
-	rm -f proj3 *.o 
+	rm -f proj4 *.o 

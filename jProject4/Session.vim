@@ -803,12 +803,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 200 - ((36 * winheight(0) + 26) / 52)
+let s:l = 199 - ((35 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-200
-normal! 0
+199
+normal! 028|
 wincmd w
 argglobal
 if bufexists('carEntry.cpp') | buffer carEntry.cpp | else | edit carEntry.cpp | endif
@@ -928,14 +928,13 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 207 - ((45 * winheight(0) + 26) / 52)
+let s:l = 50 - ((49 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-207
+50
 normal! 0
 wincmd w
-2wincmd w
 exe 'vert 1resize ' . ((&columns * 105 + 106) / 212)
 exe 'vert 2resize ' . ((&columns * 106 + 106) / 212)
 tabedit main.cpp
@@ -1196,12 +1195,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 57 - ((29 * winheight(0) + 26) / 52)
+let s:l = 16 - ((15 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-57
-normal! 033|
+16
+normal! 0
 wincmd w
 argglobal
 if bufexists('tools.cpp') | buffer tools.cpp | else | edit tools.cpp | endif
@@ -1328,10 +1327,11 @@ normal! zt
 36
 normal! 026|
 wincmd w
+2wincmd w
 exe 'vert 1resize ' . ((&columns * 44 + 106) / 212)
 exe 'vert 2resize ' . ((&columns * 82 + 106) / 212)
 exe 'vert 3resize ' . ((&columns * 84 + 106) / 212)
-tabnext 1
+tabnext 2
 set stal=1
 if exists('s:wipebuf')
   silent exe 'bwipe ' . s:wipebuf
