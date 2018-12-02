@@ -13,10 +13,11 @@ private:
 		Node * next;
 		Node * prev;
 	};
+    //NOTE: IDENTIFIED HEAD AND TAIL AS NULL
 	Node * head, * tail;
 public:
 	LinkedList();
-	bool addAtBeginning(int val);
+	void addAtBeginning(int val);
 	bool remove(int val);
 	void printForward() const;
 	void printBackward() const;
