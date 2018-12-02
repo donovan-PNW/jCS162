@@ -63,6 +63,8 @@ class carEntry
 		void printCarEntry(ofstream &);		
         //reassignment
         const carEntry& operator= (const carEntry& thisCar);
+        friend ostream& operator<< (ostream& out, const carEntry& thisCar);
+        
 };
 
 class carEntryList

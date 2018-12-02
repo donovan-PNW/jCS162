@@ -207,4 +207,8 @@ const carEntry& carEntry::operator= (const carEntry& thisCar)
 
 }
 
-
+friend ostream& operator<< (ostream& out, const carEntry& thisCar)
+{
+    out << thisCar.name;
+    return out;
+}
