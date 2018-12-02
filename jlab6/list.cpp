@@ -49,8 +49,68 @@ void LinkedList::printForward() const
     }
     return;
 }
-//	bool LinkedList::remove(int val);
-//};
+
+
+bool LinkedList::remove(int val)
+{
+
+    Node *current = head;
+    Node *upNext = current->next;
+    Node *flag;
+    if(head->data == val)
+    {
+        head = upNext;
+        delete current;
+        upNext->prev = NULL;
+    }
+    else
+    {
+        while(upNext != NULL)
+
+        {
+            if(val == (upNext->data))
+            {
+                flag = upNext;
+                current->next = upNext->next;
+                if(flag->next !=NULL)
+                {
+                    current = upNext->next;
+                    current->prev = flag->prev;
+                }
+                else
+                {
+                    tail = current;
+                }
+                delete flag;
+
+
+                return true;
+            }
+
+            current = current ->next;
+            upNext = current ->next;
+        }
+    }
+
+
+    return false;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
