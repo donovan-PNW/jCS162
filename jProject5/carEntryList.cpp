@@ -173,7 +173,7 @@ void carEntryList::removeEntry()
     }
 	toRemove = readInt("Which car would you like to remove? (select by number) ");
 	Node *current = head, *prev = NULL;
-	while(toRemove < 1 || toRemove > size)
+	while(toRemove < 1 || toRemove > size+1)
     {
 		toRemove = readInt("Invalid Index! please enter a number between 1 and the max list size: ");
 	}
