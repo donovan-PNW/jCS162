@@ -63,16 +63,23 @@ class carEntry
 		void printCarEntry(ofstream &);		
         //reassignment
         const carEntry& operator= (const carEntry& thisCar);
-        friend ostream& operator<< (ostream& out, const carEntry& thisCar);
+        //friend ostream& operator<< (ostream& out, const carEntry& thisCar);
         
 };
 
 class carEntryList
 {
     private:
-        carEntry *list;
+        //struct for node
+        struct Node
+        {
+            carEntry data;
+            Node *next;
+        };
+        Node *head;
+        Node *tail;
         int size;
-        int capacity;
+        //int capacity;
     public:
         //constructors
         carEntryList();

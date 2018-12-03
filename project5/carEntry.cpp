@@ -5,8 +5,7 @@
 carEntry::carEntry()
 {
     //allocate memory
-    name = new char[MAX_CHAR];
-    strcpy(name, "Blank Car");
+    name = NULL; 
     mpg = 0;
     cylinders = 0;
     displacement = 0;
@@ -35,10 +34,23 @@ carEntry::carEntry(char tempName[MAX_CHAR], double tempMpg, int tempCylinders, d
 carEntry::carEntry(const carEntry &thisCar)
 {
     name = new char[strlen(thisCar.name) + 1];
-    *this = thisCar;
+    strcpy(name, thisCar.name);
+    mpg = thisCar.mpg;
+    cylinders = thisCar.cylinders;
+    displacement = thisCar.displacement;
+    horsepower = thisCar.horsepower;
+    weight = thisCar.weight;
+    acceleration = thisCar.acceleration;
+    model = thisCar.model;
+    origin = thisCar.origin;
 }
+//{
+//    name = new char[strlen(thisCar.name) + 1];
+//    *this = thisCar;
+//}
 
 //destructor
+//TODO: What about all the other values???
 carEntry::~carEntry()
 {
     //Kaboom!
@@ -207,8 +219,16 @@ const carEntry& carEntry::operator= (const carEntry& thisCar)
 
 }
 
-friend ostream& operator<< (ostream& out, const carEntry& thisCar)
-{
-    out << thisCar.name;
-    return out;
-}
+//ostream& operator<< (ostream& out, const carEntry& thisCar)
+//{
+//    out << thisCar.name << ";";
+//    out << thisCar.mpg << ";";
+//    out << thisCar.cylinders << ";";
+//    out << thisCar.displacement << ";";
+//    out << thisCar.horsepower << ";";
+//    out << thisCar.weight << ";";
+//    out << thisCar.acceleration << ";";
+//    out << thisCar.model << ";";
+//    out << thisCar.origin << ";";
+//    return out;
+//}
