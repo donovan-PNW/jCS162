@@ -2,16 +2,19 @@
 
 carEntryList::carEntryList()
 {
-    int capacity = CAP;
-    list = new carEntry[capacity];
+    head = NULL;
+    tail = NULL;
     size = 0;
 }
 
 carEntryList::carEntryList(char fileName[])
 { 
-    int capacity = CAP;
-    list = new carEntry[capacity];
+    head = NULL;
+    tail = NULL;
     size = 0;
+    //int capacity = CAP;
+    //list = new carEntry[capacity];
+    //size = 0;
     ifstream inFile;
     carEntry thisCar;
     char tempName[MAX_CHAR];
@@ -76,34 +79,118 @@ carEntryList::carEntryList(char fileName[])
 carEntryList::~carEntryList()
 {
     //KABOOM!!
-    if(list)
+    Node *current = head;
+    while(current)
     {
-        delete [] list;
-        list = NULL;
+        head = current->next;
+        delete current;
+        current = head;
     }
+    tail = NULL;
 }
+    //if(list)
+    //{
+    //    delete [] list;
+    //    list = NULL;
+    //}
+    //}
+
 void carEntryList::addEntry(carEntry thisCar)
 {
-    if(size==capacity)
-    {
-        growList(); 
-    }
-    list[size++] = thisCar;
+    Node *newNode = NULL, *current = NULL, *prev = NULL;
+	char str1[MAX_CHAR], str2[MAX_CHAR], tempTitle[MAX_CHAR];
+    char tempName[MAX_CHAR];
+    double tempMpg;
+    int tempCylinders;
+    double tempDisplacement;
+    double tempHorsepower;
+    double tempWeight;
+    double tempAcceleration;
+    int tempModel;
+    char originDesc[MAX_CHAR];
+    whereFrom tempOrigin;
+    whereFrom tempLocation;
+	int tempQty;
+	double tempRating;
+	//populate newNode
+	newNode = new Node;
+	newNode->data = thisCar;
+	newNode->next = NULL;
+	//check to see if list is empty
+	if(!head)
+	{
+		head = newNode;
+		tail = newNode;
+	}
+	//if list is not empty, then insert sorted by title
+	else
+	{
+		current = head;
+		current->data.getCarName(str1);
+		newNode->data.getCarName(str2);
+		while(current && isLessThan(str1, str2))
+		{
+			prev = current;
+			current = current->next;
+			if(current)
+			{
+				current->data.getCarName(str1);
+			}
+		}
+		//check to see if we are at the end of our list
+		if(!current)
+        {
+        	tail->next = newNode;
+            tail = newNode;
+        }
+        //insert in between
+        else if(prev)
+        {
+            newNode->next = current;
+            prev->next = newNode;
+        }
+        //insert at the beginning
+        else
+        {
+            newNode->next = current;
+            head = newNode;
+        }
+        size++;
+	}
+    
 }
 
 void carEntryList::removeEntry()
 {
 	int delIndex = 1;
-    delIndex = readInt("Please enter index of the car you would like to remove: ");
-    if(delIndex < size)
+    int toRemove = 0;
+    if(!size)
     {
-         for(int i = delIndex; i < size; i++)
-        {
-            list[i-1] = list[i];
-        }
+        cout << "NOTHING TO DELETE!" << endl;
+        return;
     }
-    cout << "this car has beeen removed!" << endl << endl;
-    size--;
+	toRemove = readInt("Which car would you like to remove? (select by number) ");
+	Node *curr = head, *prev = NULL;
+	while(toRemove < 1 || toRemove > size){
+		toRemove = readInt("Bad Index, please re-enter:");
+	}
+	while(curr && delIndex < toRemove){
+		prev = curr;
+		curr = curr->next;
+		count++;
+	}
+	if(!prev){
+		head = curr->next;
+	} else if(curr == tail){
+		prev->next = curr->next;
+		tail = prev;
+	} else {
+		prev->next = curr->next;
+	}
+	delete curr;
+	curr = NULL;
+	prev = NULL;
+	size--;
 }
 
 void carEntryList::displayList()
@@ -210,3 +297,10 @@ void carEntryList::growList()
 
 
 
+//function to compare 2 strings
+bool carEntryList::isLessThan(char str1[], char str2[])
+{
+	if(strcmp(str1, str2) < 0)
+		return true;
+	return false;
+}

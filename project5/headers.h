@@ -95,6 +95,7 @@ class carEntryList
         void searchByMPG();
         void writeAndQuit(char[]);
         void growList();
+        bool isLessThan(char str1[], char str2[]);
 };
 
 int readInt(char prompt[]);
