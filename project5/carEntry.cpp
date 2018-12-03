@@ -67,7 +67,6 @@ void carEntry::setCarName(char newName[])
     if(name)
     {
         delete [] name;
-        name = NULL;
     }
     name = new char[strlen(newName)+1];
     strcpy(name, newName);

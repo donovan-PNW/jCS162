@@ -160,6 +160,8 @@ void carEntryList::addEntry(carEntry thisCar)
     
 }
 
+
+
 void carEntryList::removeEntry()
 {
 	int delIndex = 1;
@@ -213,6 +215,11 @@ void carEntryList::displayList()
 	cout << endl;
 }
 
+int carEntryList::getSize()
+{
+    return size;
+}
+
 void carEntryList::searchByName()
 {
     
@@ -236,6 +243,7 @@ void carEntryList::searchByName()
     {
         cout << "No cars matching this search can be found :( " << endl;
     }
+    return;
 }
 
 void carEntryList::searchByOrigin()
@@ -255,17 +263,23 @@ void carEntryList::searchByOrigin()
         {
             cout << index << ") ";
             current->data.printCarEntry();
+            flag = true;
         }
         index++;
-    
     }
-
+    if(!flag)
+    {
+        cout << "No entries match this search parameter! " << endl;
+    }
+    return;
 }
+
 void carEntryList::searchByMPG()
 {
     double tempMPG;
     double selectedMPG;
-    int index;
+    int index = 1;
+    bool flag = false;
     cout << "Please enter the minimum number of miles per gallon: " << endl;
     cin >> selectedMPG;
     while(!cin)
@@ -275,44 +289,35 @@ void carEntryList::searchByMPG()
         cout << "Please enter a number!  ";
         cin >> selectedMPG;
     }
-    for(index = 0; index < size; index++)
+    for(Node *current = head; current; current = current->next)
     {
-        tempMPG = list[index].getMPG();
+        tempMPG = current->data.getMPG();//list[index].getMPG();
         if(tempMPG >= selectedMPG)
         {
-            cout << index+1 << ") ";
-            list[index].printCarEntry();
+            cout << index << ") ";
+            current->data.printCarEntry();
+            flag = true;
+            index++;
         }
+    }
+    if(!flag)
+    {
+        cout << "No cars in this list have an MPG rating above this number! " << endl;
     }
 }
 
+//writes the data to the file
 void carEntryList::writeAndQuit(char fileName[])
 {
 	ofstream outFile;
 	outFile.open(fileName);
-	for(int index = 0; index < size; index++)
+    Node *current;
+	for(current = head; current; current = current->next)
 	{
-	    list[index].printCarEntry(outFile);
-
+        current->data.printCarEntry(outFile);
 	}
+    return;
 }
-
-//growlist
-void carEntryList::growList()
-{
-    capacity += GROWTH;
-    char tempName[MAX_CHAR];
-
-    carEntry *tempList = new carEntry[capacity];
-    for (int index = 0; index < size; index++)
-    {
-        tempList[index] = list[index];
-    }
-    delete[] list;
-    list = tempList;
-    tempList = NULL;
-}
-
 
 
 //function to compare 2 strings

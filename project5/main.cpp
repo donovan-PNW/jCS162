@@ -7,7 +7,7 @@ int main()
     dealership.displayList();
 	char option;
     do
-  {
+    {
         displayMenu();
         option = readOption();
         exeCmd(option, dealership);

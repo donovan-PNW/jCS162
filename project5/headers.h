@@ -90,6 +90,7 @@ class carEntryList
         void addEntry(carEntry);
         void removeEntry();
         void displayList();
+        int  getSize();
         void searchByName();
         void searchByOrigin();
         void searchByMPG();
