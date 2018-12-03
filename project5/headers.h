@@ -58,7 +58,7 @@ class carEntry
         double getAcceleration() const;
         int getModel() const;
 		whereFrom getOrigin() const;
-		//print video
+		//print carEntry 
 		void printCarEntry();
 		void printCarEntry(ofstream &);		
         //reassignment

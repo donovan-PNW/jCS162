@@ -218,19 +218,24 @@ void carEntryList::searchByName()
     
 	char searchName[MAX_CHAR];
 	char tempName[MAX_CHAR];
+    bool flag = false;
 	cout << "Please enter the name of the car you would like to search for (can be a partial match):";
 	cin.get(searchName, MAX_CHAR);
 	convertCase(searchName);
-	for(int i = 0; i < size; i++)
+	for(Node *current = head; current; current  = current->next)
 	{
-		list[i].getCarName(tempName);
+		current->data.getCarName(tempName);
 		convertCase(tempName);
 		if(strstr(tempName, searchName) != NULL)
 		{
-            cout << i+1 << ") ";
-			list[i].printCarEntry();
+			current->data.printCarEntry();
+			flag = true;
 		}
 	}
+    if(!flag)
+    {
+        cout << "No cars matching this search can be found :( " << endl;
+    }
 }
 
 void carEntryList::searchByOrigin()
@@ -238,17 +243,20 @@ void carEntryList::searchByOrigin()
     char firstLetter;
     whereFrom searchOrigin;
     whereFrom tempOrigin;
+    bool flag = false;
+    int index = 1;
     cout << "Please select a filter to display cars from a particular region: [U]sa, [E]urope, [J]apan";
     cin >> firstLetter;
     searchOrigin = readOrigin(firstLetter);
-    for(int index = 0; index < size; index++)
+    for(Node *current = head; current; current = current->next)
     {
-        tempOrigin = list[index].getOrigin();
+        tempOrigin = current->data.getOrigin();
         if(searchOrigin == tempOrigin)
         {
-            cout << index+1 << ") ";
-            list[index].printCarEntry();
+            cout << index << ") ";
+            current->data.printCarEntry();
         }
+        index++;
     
     }
 
