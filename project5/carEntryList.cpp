@@ -170,35 +170,45 @@ void carEntryList::removeEntry()
         return;
     }
 	toRemove = readInt("Which car would you like to remove? (select by number) ");
-	Node *curr = head, *prev = NULL;
-	while(toRemove < 1 || toRemove > size){
-		toRemove = readInt("Bad Index, please re-enter:");
+	Node *current = head, *prev = NULL;
+	while(toRemove < 1 || toRemove > size)
+    {
+		toRemove = readInt("Invalid Index! please enter a number between 1 and the max list size: ");
 	}
-	while(curr && delIndex < toRemove){
-		prev = curr;
-		curr = curr->next;
-		count++;
+	while(current && delIndex < toRemove)
+    {
+		prev = current;
+		current = current->next;
+		delIndex++;
 	}
-	if(!prev){
-		head = curr->next;
-	} else if(curr == tail){
-		prev->next = curr->next;
+	if(!prev)
+    {
+		head = current->next;
+	} 
+    else if(current == tail)
+    {
+		prev->next = current->next;
 		tail = prev;
-	} else {
-		prev->next = curr->next;
+	} 
+    else 
+    {
+		prev->next = current->next;
 	}
-	delete curr;
-	curr = NULL;
+	delete current;
+	current = NULL;
 	prev = NULL;
 	size--;
 }
 
 void carEntryList::displayList()
 {
-	for(int i = 0; i < size; i++)
+    int count = 1;
+    Node *current;
+	for(current = head; current; current = current->next)
 	{
-		cout << i+1 << ") ";
-		list[i].printCarEntry();
+		cout << count << ") ";
+        current->data.printCarEntry();
+        count++;
 	}
 	cout << endl;
 }
