@@ -12,9 +12,6 @@ carEntryList::carEntryList(char fileName[])
     head = NULL;
     tail = NULL;
     size = 0;
-    //int capacity = CAP;
-    //list = new carEntry[capacity];
-    //size = 0;
     ifstream inFile;
     carEntry thisCar;
     char tempName[MAX_CHAR];
@@ -88,13 +85,7 @@ carEntryList::~carEntryList()
     }
     tail = NULL;
 }
-    //if(list)
-    //{
-    //    delete [] list;
-    //    list = NULL;
-    //}
-    //}
-
+//TODO delete these values???
 void carEntryList::addEntry(carEntry thisCar)
 {
     Node *newNode = NULL, *current = NULL, *prev = NULL;
@@ -291,7 +282,7 @@ void carEntryList::searchByMPG()
     }
     for(Node *current = head; current; current = current->next)
     {
-        tempMPG = current->data.getMPG();//list[index].getMPG();
+        tempMPG = current->data.getMPG();
         if(tempMPG >= selectedMPG)
         {
             cout << index << ") ";

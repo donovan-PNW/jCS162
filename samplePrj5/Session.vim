@@ -807,12 +807,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
+let s:l = 15 - ((14 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+15
+normal! 06|
 wincmd w
 argglobal
 if bufexists('video.h') | buffer video.h | else | edit video.h | endif
@@ -932,12 +932,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
+let s:l = 42 - ((41 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+42
+normal! 014|
 wincmd w
 argglobal
 if bufexists('videolist.h') | buffer videolist.h | else | edit videolist.h | endif
@@ -1057,12 +1057,12 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 1 - ((0 * winheight(0) + 26) / 52)
+let s:l = 28 - ((27 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-1
-normal! 0
+28
+normal! 013|
 wincmd w
 exe 'vert 1resize ' . ((&columns * 70 + 106) / 212)
 exe 'vert 2resize ' . ((&columns * 70 + 106) / 212)
@@ -1201,7 +1201,7 @@ if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
 28
-normal! 035|
+normal! 027|
 wincmd w
 argglobal
 if bufexists('video.cpp') | buffer video.cpp | else | edit video.cpp | endif
@@ -1321,17 +1321,17 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 148 - ((51 * winheight(0) + 26) / 52)
+let s:l = 92 - ((25 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-148
-normal! 018|
+92
+normal! 012|
 wincmd w
 2wincmd w
 exe 'vert 1resize ' . ((&columns * 106 + 106) / 212)
 exe 'vert 2resize ' . ((&columns * 105 + 106) / 212)
-tabedit videolist.h
+tabedit videolist.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
 vsplit
@@ -1341,8 +1341,8 @@ set nosplitbelow
 set nosplitright
 wincmd t
 set winminheight=1 winheight=1 winminwidth=1 winwidth=1
-exe 'vert 1resize ' . ((&columns * 106 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 108 + 106) / 212)
 argglobal
 setlocal keymap=
 setlocal noarabic
@@ -1460,15 +1460,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 25 - ((24 * winheight(0) + 26) / 52)
+let s:l = 186 - ((43 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-25
-normal! 027|
+186
+normal! 020|
 wincmd w
 argglobal
-if bufexists('videolist.cpp') | buffer videolist.cpp | else | edit videolist.cpp | endif
+if bufexists('videolist.h') | buffer videolist.h | else | edit videolist.h | endif
 setlocal keymap=
 setlocal noarabic
 setlocal autoindent
@@ -1585,15 +1585,15 @@ setlocal nowinfixwidth
 setlocal wrap
 setlocal wrapmargin=0
 silent! normal! zE
-let s:l = 239 - ((42 * winheight(0) + 26) / 52)
+let s:l = 27 - ((26 * winheight(0) + 26) / 52)
 if s:l < 1 | let s:l = 1 | endif
 exe s:l
 normal! zt
-239
-normal! 0
+27
+normal! 010|
 wincmd w
-exe 'vert 1resize ' . ((&columns * 106 + 106) / 212)
-exe 'vert 2resize ' . ((&columns * 105 + 106) / 212)
+exe 'vert 1resize ' . ((&columns * 103 + 106) / 212)
+exe 'vert 2resize ' . ((&columns * 108 + 106) / 212)
 tabedit tools.cpp
 set splitbelow splitright
 wincmd _ | wincmd |
