@@ -89,20 +89,7 @@ carEntryList::~carEntryList()
 void carEntryList::addEntry(carEntry thisCar)
 {
     Node *newNode = NULL, *current = NULL, *prev = NULL;
-	char str1[MAX_CHAR], str2[MAX_CHAR], tempTitle[MAX_CHAR];
-    char tempName[MAX_CHAR];
-    double tempMpg;
-    int tempCylinders;
-    double tempDisplacement;
-    double tempHorsepower;
-    double tempWeight;
-    double tempAcceleration;
-    int tempModel;
-    char originDesc[MAX_CHAR];
-    whereFrom tempOrigin;
-    whereFrom tempLocation;
-	int tempQty;
-	double tempRating;
+	char str1[MAX_CHAR], str2[MAX_CHAR];
 	//populate newNode
 	newNode = new Node;
 	newNode->data = thisCar;
