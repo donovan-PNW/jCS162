@@ -10,7 +10,7 @@ int main()
 
     //PLEASE PUT YOUR CODE HERE to call the function assigned
     int finalSum;
-    int position = 20;
+    int position = 0;
     int newInt = 111;
     finalSum = sumOfList(head);
     cout << "My sum is: " << finalSum << endl;
@@ -19,7 +19,7 @@ int main()
 
 
     display(head);
-    //destroy(head);
+    destroy(head);
     
     return 0;
 }

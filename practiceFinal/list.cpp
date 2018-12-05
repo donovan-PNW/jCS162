@@ -9,13 +9,12 @@ int sumOfList(node *head)
     current = head;
     for(; current; current = current->next)
     {
-       // std::cout << current->data;
         sum = sum + current->data;
     }
     
     return sum;
 }
-//TRY RETOOLING THIS TO MAKE IT A PRESENT AND A PAST POINTER, SO THAT PRESENT POINTER STARTS AT ZERO AND MOVES FORWARD (PAST = PRES, PRES = PRES->NEXT)
+
 void insert(node *&head, int position, int newInt)
 {
     node *current = NULL, *past = NULL, *newNode = NULL;
@@ -30,7 +29,7 @@ void insert(node *&head, int position, int newInt)
         return;
     }
     current = head;
-    while(current != NULL)    //for(index = 0; position >= index; index++)
+    while(current != NULL)
     {
         if(current->next == NULL)
         {
@@ -49,36 +48,20 @@ void insert(node *&head, int position, int newInt)
             if(index == 0)
             {
                 head = newNode;
-                return;
             }
-            past->next = newNode;
+            else
+            {
+                past->next = newNode;
+            }
             return;
         }
-        past=current;
-        current = current->next;
-        std::cout << index;
-        index++;
-        //}
-
-                //else if(index == position)
-                //{
-                //    newNode = new node;
-                //    newNode->data = newInt;
-                //    current->next = newNode;
-                //    newNode->next = future;
-                //    return;
-                //}
-                //else
-                //{
-                //    current = current->next;
-                //    future = current->next;
-                //}
-        //std::cout << index;
-        //index++;
+        else
+        {
+            past=current;
+            current = current->next;
+            std::cout << index;
+            index++;
+        }
     }
-    //newNode = new node;
-    //newNode->data = newInt;
-    //newNode->next = current->next; 
-   // past->next = current;
     return;
 }
