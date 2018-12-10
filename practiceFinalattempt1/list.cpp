@@ -65,3 +65,39 @@ void insert(node *&head, int position, int newInt)
     }
     return;
 }
+
+void deleteThis(node *&head, int position, int newInt)
+{
+    node *past, *current;
+    if(!head)
+    {
+        std::cout << "NO LIST!\n";
+        return;
+    }
+    current = head;
+
+    return;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
